@@ -7,12 +7,13 @@ pwd = input("Enter the master password: ")
 
 masterpswd = "1"
 attempts = 0
-while pwd != masterpswd and attempts <= 3:
+while pwd != masterpswd:
+    if attempts >= 3:
+        print(f"\n{RED}You have no more password attempts.{RESET}")
+        quit()
     pwd = input(f"\n{RED}The password you entered is incorrect.{RESET}\n\nEnter the master password: ")
     attempts += 1
-if attempts >= 3:
-    print(f"\n{RED}You have no more password attempts.{RESET}")
-    quit()
+    
 
 def view():
     with open("password.txt", "r") as f:
